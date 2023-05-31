@@ -1,0 +1,375 @@
+@import url('https://fonts.googleapis.com/css2?family=Joti+One&display=swap');
+/*
+    font-family: 'Joti One', cursive;
+ */
+@import url('https://fonts.googleapis.com/css2?family=Gaegu:wght@700&display=swap');
+/*
+    font-family: 'Gaegu', cursive;
+    color: transparent;
+text-shadow: 0 0 2px #ff0000, 0 1px 2px #ff7700, 0 2px 3px #ffaa00, 0 3px 4px #ffd700, 0 4px 5px #ffff00, 0 5px 6px #d4ff00, 0 6px 7px #aaff00, 0 7px 8px #77ff00, 0 8px 9px #44ff00, 0 9px 10px #00ff00;
+
+ */
+
+html {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --carne: #E6F793;
+    --verde-claro: rgb(150, 235, 118);
+    --celeste: #4AC385;
+    --verde-oscuro: #698B4D;
+    --lila: #A72A5B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+
+    background: var(--verde-claro);
+    /* background: linear-gradient(0deg, var(--verde-oscuro) 0%, var(--lila) 100%); */
+}
+
+#virusFondo {
+    position: fixed;
+    top: 100vh;
+    z-index: -1;
+    min-width: 190.8px;
+    width: 477px;
+    max-width: 30vw;
+
+    min-height: 209.2px;
+    height: 523px;
+    max-height: 30vw;
+
+    margin-left: 50%;
+    transform: translateY(-50%) translateX(-50%) scale(2);
+    animation: 3s 1s rodar both;
+
+    background-image: url(img/logoVirus-removebg-preview.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+@keyframes rodar {
+    0% {
+        transform: translateY(-50%) translateX(-50%) rotate(180deg);
+    }
+
+    70% {
+        transform: translateY(-50%) translateX(-50%) rotate(10deg);
+    }
+
+    100% {
+        transform: translateY(-50%) translateX(-50%) rotate(80deg);
+    }
+}
+
+#basura {
+    text-align: center;
+    width: 20%;
+
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+
+    text-shadow: 0px 0px 2px #698B4D;
+    padding: 10% 5% 5% 5%;
+
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgb(0, 0, 0) 10%, rgba(221, 0, 0, 0) 70%);
+    font-family: 'Gaegu', cursive;
+    font-size: clamp(20px, 2vw, 80px);
+    border-radius: 200px 200px 0% 0%;
+    color: var(--verde-claro);
+    display: none;
+    z-index: 2;
+}
+
+#virus {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Joti One', cursive;
+    font-size: clamp(20px, 8vw, 80px);
+    background: linear-gradient(360deg, #698B4D 0%, #4AC385 99.99%, #A72A5B 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+
+}
+
+#divInicial {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: auto;
+    width: 100%;
+    height: fit-content;
+    position: absolute;
+    top: 30%;
+    font-size: clamp(15px, 2vw, 40px);
+    font-family: 'Gaegu', cursive;
+    color: var(--lila);
+}
+
+#explicacio,
+#jugar {
+    display: grid;
+    align-content: center;
+    text-align: center;
+    justify-self: center;
+    padding: 1vw 2vw;
+    margin: 1%;
+
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+
+    background: var(--carne);
+    border-radius: 50px;
+    box-shadow: 0 0 15px 0 var(--verde-oscuro);
+
+    transition: 2s;
+}
+
+#explicacioP {
+    display: none;
+    justify-self: center;
+    text-align: justify;
+    padding: 5% 2% 2%;
+    width: 70%;
+    height: 50vh;
+    color: var(--carne);
+    margin: 0;
+
+    overflow-y: scroll;
+
+    position: absolute;
+    top: 20%;
+    z-index: -1;
+    background: linear-gradient(to bottom, var(--verde-oscuro), rgba(74, 195, 133, 0));
+}
+
+/*----------------------------------------JUGADORS-------------------------------------------------------*/
+#lateralDret {
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+    padding: 2%;
+}
+
+
+#lateralDret > div {
+    display: grid;
+    grid-template-areas:
+    "mesa "
+    "mano"
+    "titulo"
+    ;
+
+    justify-items: end;
+    gap: 1%;
+}
+
+
+
+#lateralEsquerre {
+    position: absolute;
+    left: 0%;
+    top: 0%;
+}
+
+#lateralEsquerre>div {
+    padding: 2%;
+
+    display: grid;
+    grid-template-areas:
+        "titulo "
+        "mano "
+        "mesa "
+    ;
+    justify-items: start;
+    gap: 1%;
+}
+
+.titulo {
+    grid-area: titulo;
+    display: inline-flex;
+    justify-content: center;
+    
+    width: 70%;
+    height: fit-content;
+    border-radius: 50px;
+
+    border-color: var(--celeste);
+    padding: 0.5% 2%;
+    color: var(--celeste);
+    background-color: var(--carne);
+
+    font-family: 'Gaegu', cursive;
+    font-size: clamp(15px, 3vw, 25px);
+
+    z-index: 4;
+}
+
+.botoCambiarTorn {
+    grid-area: boto;
+
+    width: fit-content;
+    height: fit-content;
+    border-radius: 50px;
+    border-color: var(--carne);
+    padding: 0.5% 2%;
+    margin: 0% 1%;
+    color: var(--carne);
+    background-color: var(--celeste);
+
+    font-family: 'Gaegu', cursive;
+    font-size: clamp(15px, 2vw, 25px);
+}
+
+.mano {
+    grid-area: mano;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 0;
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.mesa {
+    grid-area: mesa;
+    width: fit-content;
+    height: fit-content;
+    position: relative;
+
+    background: linear-gradient(0deg, var(--carne) 0%, rgba(242, 242, 242, 0) 100%);
+    filter: blur(0px);
+    border-radius: 2vw;
+
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    padding: 2% 1% 1% 5%;
+}
+
+.carta {
+    display: flex;
+    position: relative;
+
+    width: 7vw;
+    min-width: 50px;
+    height: 9.1vw;
+    min-height: 64px;
+    filter: none;
+    background-size: cover;
+    z-index: 20;
+
+    opacity: 1;
+    margin-right: 2vw;
+    border-radius: 1.5vw;
+}
+
+/* .cartaCongelada {
+    display: flex;
+    position: relative;
+
+    width: 7vw;
+    min-width: 50px;
+    height: 9.1vw;
+    min-height: 64px;
+    filter: none;
+    background-size: cover;
+    z-index: 20;
+
+    opacity: 1;
+    margin-right: 2vw;
+    border-radius: 1.5vw;
+} */
+
+.carta {
+    border: 2px dotted rgba(0, 0, 0, 0.392);
+}
+.mano .carta{
+    filter: brightness(10) opacity(0.4);
+
+}
+
+#lateralEsquerre div .mesa {
+    padding: 1% 1% 2% 5%;
+
+}
+
+#background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.image {
+    position: absolute;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: -5;
+    filter: invert(0);
+}
+
+.image.active {
+    display: block;
+    transition: 2s;
+
+    animation: virusPetit 3s both;
+}
+
+@keyframes virusPetit {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 0.9;
+        transform: translateY(0px) scale(0.01);
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 800px) {
+    #lateralDret > div {
+        position: relative;
+        justify-items: center;
+    }
+
+    #lateralEsquerre > div {
+        position: relative;
+        justify-items: center;
+    }
+
+    #lateralEsquerre #jugador2Div,
+    #lateralEsquerre #jugador3Div {
+        justify-items: center;
+    }
+}
